@@ -1,0 +1,14 @@
+<launch>
+
+  <rosparam command="load" file="$(find direct_stereo_slam)/cams/robotcar/T_stereo.yaml" ns="direct_stereo_slam"/>
+
+  <node name="direct_stereo_slam" pkg="direct_stereo_slam" type="slam_node" output="screen">
+    <param name="topic0" value="camera/left/image_raw" />
+    <param name="topic1" value="camera/right/image_raw" />
+    <param name="calib0" value="$(find direct_stereo_slam)/cams/robotcar/camera0.txt" />
+    <param name="calib1" value="$(find direct_stereo_slam)/cams/robotcar/camera1.txt" />
+    <!-- <param name="preset" value="2" />
+    <param name="scale_accept_thres" value="10.0" /> -->
+  </node>
+
+  </launch>

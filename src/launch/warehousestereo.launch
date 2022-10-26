@@ -1,0 +1,12 @@
+<launch>
+  <rosparam command="load" file="$(find direct_stereo_slam)/cams/warehousestereo/T_stereo.yaml" ns="direct_stereo_slam"/>
+  <node name="direct_stereo_slam" pkg="direct_stereo_slam" type="slam_node" output="screen" required="true">
+    <param name="topic0" value="/zed2/left_raw/image_raw_color" />
+    <param name="topic1" value="/zed2/right_raw/image_raw_color" />
+    <param name="calib0" value="$(find direct_stereo_slam)/cams/warehousestereo/camera0.txt" />
+    <param name="calib1" value="$(find direct_stereo_slam)/cams/warehousestereo/camera1.txt" />
+    <!-- <param name="preset" value="2" />
+    <param name="scale_accept_thres" value="10.0" /> -->
+  </node>
+
+  </launch>
